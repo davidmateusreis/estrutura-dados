@@ -10,5 +10,9 @@ public class Aula02 {
 
         int i = 0;
         i++;
+
+        System.out.println(vetor);
+        System.out.println(i);
     }
+    
 }

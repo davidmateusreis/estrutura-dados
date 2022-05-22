@@ -1,32 +1,15 @@
 package com.loiane.estruturadados.vetor;
 
-public class Vetor {
+public class VetorObjetos {
     // ATRIBUTOS
-    private String[] elementos;
+    private Object[] elementos;
     private int tamanho;
     // MÉTODO CONSTRUTOR
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    public VetorObjetos(int capacidade) {
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
-/*  public void adiciona(String elemento) {
-        for(int i = 0; i < this.elementos.length; i++) {
-            if (this.elementos[i] == null) {
-                this.elementos[i] = elemento;
-                break;
-            }
-        }
-    } */
-/*  public void adiciona(String elemento) throws Exception {
-        if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elemento;
-            this.tamanho++;
-        } else {
-            throw new Exception("O vetor já está cheio, não foi possível adicionar mais elementos.");
-        }
-        
-    } */
-    public boolean adiciona(String elemento) { // ADICIONA ELEMENTO AO FINAL DO VETOR
+    public boolean adiciona(Object elemento) { // ADICIONA ELEMENTO AO FINAL DO VETOR
         this.aumentaCapacidade();
         if (this.tamanho < this.elementos.length) {
             this.elementos[this.tamanho] = elemento;
@@ -35,11 +18,7 @@ public class Vetor {
         }
         return false;  
     }
-
-    // 0 1 2 3 4 5 6 = Tamanho 5
-    // B C E F G + +
-    //
-    public boolean adiciona(int posicao, String elemento) { // ADICIONA UM ELEMENTO EM QUALQUER POSIÇÃO QUE JÁ ESTEJA OCUPADA EM UM VETOR
+    public boolean adiciona(int posicao, Object elemento) { // ADICIONA UM ELEMENTO EM QUALQUER POSIÇÃO QUE JÁ ESTEJA OCUPADA EM UM VETOR
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("A posição é inválida!");
         }
@@ -55,21 +34,20 @@ public class Vetor {
     }
     private void aumentaCapacidade() { // ADICIONA MAIS CAPACIDADE AO UM VETOR  
         if (this.tamanho == this.elementos.length) {
-            String[] elementosNovos = new String[this.elementos.length * 2];
+            Object[] elementosNovos = new Object[this.elementos.length * 2];
             for (int i = 0; i < this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
             }
             this.elementos = elementosNovos;
         }
     }
-
-    public String busca(int posicao) { // OBTER ELEMENTO DE UMA POSIÇÃO NO VETOR
+    public Object busca(int posicao) { // OBTER ELEMENTO DE UMA POSIÇÃO NO VETOR
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("A posição é inválida!");
         }
         return this.elementos[posicao];
     }
-    public int busca(String elemento) { // VERIFICAR SE O ELEMENTO EXISTE NO VETOR COM BUSCA SEQUENCIAL
+    public int busca(Object elemento) { // VERIFICAR SE O ELEMENTO EXISTE NO VETOR COM BUSCA SEQUENCIAL
         for (int i = 0; i < this.tamanho; i++) {
             if (this.elementos[i].equals(elemento)) {
                 return i;
@@ -77,11 +55,6 @@ public class Vetor {
         }
         return -1;
     }
-    // 0 1 2 3 4 = Tamanho 5
-    // B G D E F = posição a ser removida é 1 (G)
-    // vetor[1] = vetor[2]
-    // vetor[2] = vetor[3]
-    // vetor[3] = vetor[4]
     public void remove(int posicao) { // REMOVER ELEMENTO DE QUALQUER POSIÇÃO DO VETOR
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("A posição é inválida!");
@@ -91,7 +64,6 @@ public class Vetor {
         }
         this.tamanho--;
     }
-
     public int tamanho() { // VERIFICAR A QUANTIDADE DE ELEMENTOS DO VETOR
         return this.tamanho;
     }
@@ -110,6 +82,5 @@ public class Vetor {
         }
         s.append("]");
         return s.toString();
-    }
-    
+    } 
 }
