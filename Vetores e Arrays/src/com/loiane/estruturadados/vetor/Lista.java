@@ -65,7 +65,6 @@ public class Lista<T> {
             return -1;
         }
         public int ultimoIndice(T elemento) { // EXER 02
-            int ultimaPos = -1;
             for (int i = this.tamanho-1; i >= 0; i--) {
                 if (this.elementos[i].equals(elemento)) {
                     return i;
