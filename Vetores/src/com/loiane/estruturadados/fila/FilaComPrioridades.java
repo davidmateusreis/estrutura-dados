@@ -1,5 +1,6 @@
 package com.loiane.estruturadados.fila;
 
+@SuppressWarnings("unchecked")
 public class FilaComPrioridades<T> extends Fila<T> {
     
     public void enfileira(T elemento) {
