@@ -1,2 +1,3 @@
 # estrutura-dados
- Estrutura de Dados em Java
+
+ Estrutura de Dados em Java no Loiane Training.
